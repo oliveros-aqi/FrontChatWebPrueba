@@ -32,10 +32,14 @@
 
 
 </body>
-<script>
+<!-- <script>
   window.chatwootSettings = {"position":"right","type":"standard","launcherTitle":"Chatea con nosotros"};
   (function(d,t) {
-    var BASE_URL="https://aardvark-rich-boxer.ngrok-free.app";
+    // Chatwoot del ambiente demo. El navegador SÍ entra por el dominio público; lo que va
+    // por nombre de contenedor es la conversación entre backend y Chatwoot dentro del server.
+    var BASE_URL="https://chatmeet.atlanticqi.com";
+    // Chatwoot local, cuando se levanta en la máquina:
+    // var BASE_URL="http://localhost:3000";
     var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
     g.src=BASE_URL+"/packs/js/sdk.js";
     g.defer = true;
@@ -43,12 +47,33 @@
     s.parentNode.insertBefore(g,s);
     g.onload=function(){
       window.chatwootSDK.run({
-        websiteToken: 'vcAjDLVExHqi4qZoJzryxtx2',
+        // Inbox 4 «Atlantic Pruebas Web» → canal 11 del backend, flujo de dos opciones:
+        // «1. Hablar con un asesor» entra directo al paso a agente (destino Chatwoot).
+        websiteToken: 'mrbvYipheDEzSprXEVWgzZep',
+        // Inbox 2 «Atlantic Web» → canal 2, flujo real (pide cédula y usuario), destino GoContact:
+        // websiteToken: 'VNutFYYkeN7VYWynrBf7QtKh',
+        baseUrl: BASE_URL
+      })
+    }
+  })(document,"script");
+</script> -->
+<script>
+  window.chatwootSettings = {"position":"right","type":"standard","launcherTitle":""};
+  (function(d,t) {
+    var BASE_URL="https://chatmeet.atlanticqi.com";
+    var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+    g.src=BASE_URL+"/packs/js/sdk.js";
+    g.async = true;
+    s.parentNode.insertBefore(g,s);
+    g.onload=function(){
+      window.chatwootSDK.run({
+        websiteToken: 'mrbvYipheDEzSprXEVWgzZep',
         baseUrl: BASE_URL
       })
     }
   })(document,"script");
 </script>
+
 
 
 
